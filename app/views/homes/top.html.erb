@@ -1,1 +1,11 @@
-<h1>top</h1>
+<h1>Welcome to Bookers!!</h1>
+In Bookers,
+you can share and echange your opinions, inpressions, and emotions about various books!
+
+<% if user_signed_in? %>
+  <%= link_to 'Log in', user_path(current_user.id) %>
+  <%= link_to 'sign up', user_path(current_user.id) %>
+<% else %>
+  <%= link_to 'Log in', new_user_session_path %>
+  <%= link_to 'Sign up', new_user_registration_path %>
+<% end %>
