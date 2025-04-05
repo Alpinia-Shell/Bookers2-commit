@@ -1,10 +1,4 @@
-<h2>User info</h2>
-<%= image_tag @user.get_profile_image(100,100) %>
-<p>name<p>
-<%= @user.name %>
-<p>introduction</p>
-<%= @user.introduction %>
-<%= link_to "setting",edit_user_registration_path(@user) %>
+<%= render 'list',user: @user %>
 
 <h1>New Book</h1>
 <%= form_with model:@book do |f| %>
