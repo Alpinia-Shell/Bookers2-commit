@@ -1,2 +1,26 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h2>User info</h2>
+<%= image_tag @user.get_profile_image(100,100) %>
+<p>name<p><%= @user.name %>
+<p>introduction</p><%= @user.introduction %>
+<%= link_to "setting",edit_user_registration_path(@user) %>
+
+<h1>New Book</h1>
+<%= form_with model:@book do |f| %>
+  <%= f.label "Title" %>
+    <%= f.text_field :title %>
+  <%= f.label "Opinion" %>
+    <%= f.text_area :body %>
+  <%= f.submit "Create Book" %>
+<% end %>
+
+<h1>Book detail</h1>
+<%= image_tag @a_book.user.get_profile_image(100,100) %>
+<%= @a_book.user.name %>
+<%= @a_book.title %>
+<%= @a_book.body %>
+
+<% if @a_book.user == current_user %>
+  <%= link_to 'Edit', edit_book_path %>
+  <%= link_to 'Destroy', book_path, method: :delete, data: {confirm: "本当に消しますか？" } %>
+<% end %>
+
