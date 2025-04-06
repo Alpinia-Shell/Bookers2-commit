@@ -1,11 +1,18 @@
-<h1>Welcome to Bookers!!</h1>
-In Bookers,
-you can share and echange your opinions, inpressions, and emotions about various books!
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-6 mx-auto">
+      <h1>welcome to <i class="fa-solid fa-book"></i><strong>Bookers !!</strong></h1>
+      <p>In <i class="fa-solid fa-book"></i><strong>Bookers,</strong><br/><br/>
+      you can share and echange your opinions, inpressions, and emotions<br/></br>
+      about various books!</p>
 
-<% if user_signed_in? %>
-  <%= link_to 'Log in', user_path(current_user.id) %>
-  <%= link_to 'sign up', user_path(current_user.id) %>
-<% else %>
-  <%= link_to 'Log in', new_user_session_path %>
-  <%= link_to 'Sign up', new_user_registration_path %>
-<% end %>
+      <% if user_signed_in? %>
+        <div class="text-center mb-3"><%= link_to 'Log in', user_path(current_user.id),class:"btn btn-info btn-block" %></div>
+        <div class="text-center"><%= link_to 'sign up', user_path(current_user.id),class:"btn btn-success btn-block" %></div>    
+          <% else %>        
+        <div class="text-center mb-3"><%= link_to 'Log in', new_user_session_path,class:"btn btn-info btn-block" %></div>            
+        <div class="text-center"><%= link_to 'Sign up', new_user_registration_path,class:"btn btn-success btn-block" %></div>   
+      <% end %>
+    </div>
+  </div>
+</div>
