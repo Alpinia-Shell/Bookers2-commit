@@ -1,14 +1,27 @@
 <%= render 'user',user: @user %>
 <%= render 'book',book: @book %>
+<div class="container">
+  <h2>Book detail</h2>
+  <div class="row">
+    <div class="col-2 border-top pt-3">
+      <%= image_tag @a_book.user.get_profile_image(100,100) %>
+      <p><%= link_to @a_book.user.name,user_path %></p>
+    </div>
+    <div class="col-2 border-top pt-3">
+      <%= link_to @a_book.title,book_path(@a_book) %>
+    </div>
+    <div class="col-2 border-top pt-3">
+      <%= @a_book.body %>
+    </div>
 
-<h1>Book detail</h1>
-<%= image_tag @a_book.user.get_profile_image(100,100) %>
-<%= @a_book.user.name %>
-<%= @a_book.title %>
-<%= @a_book.body %>
-
-<% if @a_book.user == current_user %>
-  <%= link_to 'Edit', edit_book_path %>
-  <%= link_to 'Destroy', book_path, method: :delete, data: {confirm: "本当に消しますか？" } %>
-<% end %>
+    <% if @a_book.user == current_user %>
+      <div class="col-2 border-top pt-3">
+        <%= link_to 'Edit', edit_book_path %>
+      </div>
+      <div class="col-2 border-top pt-3">
+        <%= link_to 'Destroy', book_path, method: :delete, data: {confirm: "本当に消しますか？" } %>
+      </div>
+    <% end %>  
+  </div>
+</div>
 
