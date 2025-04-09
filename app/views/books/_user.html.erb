@@ -7,17 +7,17 @@
   <table class="border-top mb-3 w-100">
     <tr>
       <th class= "p-3 border-bottom ">name</th>
-      <td class="border-bottom text-center"><%= user.name %></td>
+      <th class="border-bottom"><%= user.name %></th>
     </tr>
     <tr>
       <th class="p-3 ">introduction</th>
-      <td class="text-center"><%= user.introduction %></td>
+      <th><%= user.introduction %></th>
     </tr>
   </table>
 
   <%=link_to edit_user_path(user) do %>
     <button type="botton" class="btn btn-outline-secondary w-100 mb-3">
-      <i class="fa-solid fa-user-gear" style="color:gray;"></i>
+      <i class="fa-solid fa-user-gear"></i>
     </button>
   <% end %>
 

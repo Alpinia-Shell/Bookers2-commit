@@ -5,25 +5,28 @@
       <%= render 'book',book: @book %>
     </div>
 
-    <div class="col-md-8 offset-1 mt-3">
+    <div class="col-md-8 offset-md-1 mt-3">
       <h2>Book detail</h2>
       <table class="border-top w-100">
         <tr>
           <td class="p-2">
-            <%= image_tag @a_book.user.get_profile_image(100,100) %>
-            <p><%= link_to @a_book.user.name,user_path(@a_book.user.id) %></p>
+            <%= link_to user_path(@user) do %>
+              <%= image_tag @a_book.user.get_profile_image(100,100) %>
+              <p><%= @a_book.user.name %></p>
+            <% end %>
           <td>
-          <td>
+          <td class="p-2 text-center">
             <%= link_to @a_book.title,book_path(@a_book) %>
-          <td>
+          </td>
+          <td class="p-2 text-center">
             <%= @a_book.body %>
           </td>
 
           <% if @a_book.user == current_user %>
-          <td>
+          <td class="p-2 text-center">
             <%= link_to 'Edit', edit_book_path,class:"btn btn-success" %>
           </td>
-          <td>
+          <td class="p-2 text-center">
             <%= link_to 'Destroy', book_path, method: :delete, data: {confirm: "本当に消しますか？" },class:"btn btn-danger" %>
           </td>
           <% end %>  

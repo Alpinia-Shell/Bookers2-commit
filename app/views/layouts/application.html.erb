@@ -12,12 +12,12 @@
   
   <header>
     <nav class="navbar navbar-expand bg-dark p-0 ">
-      <div class="container-fluid justify-content-around" >
-        <div class="navbar-brand"><%= link_to "Bookers",root_path,class: 'nav-link text-white' %></div>
+      <div class="container">
+        <div class="navbar-brand "><%= link_to "Bookers",root_path,class: 'nav-link text-white' %></div>
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item">
-            <%= link_to root_path, class:'nav-link text-white' do %>
+            <%= link_to user_path(current_user), class:'nav-link text-white' do %>
               <i class="fa-solid fa-house" style= "color:white;"></i> Home
             <% end %>
             </li>
